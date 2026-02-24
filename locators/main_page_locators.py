@@ -9,21 +9,21 @@ class MainPageLocators:
 
     @staticmethod
     def get_ingredient(name):
-        return By.XPATH, f"//p[contains(@class, 'BurgerIngredient_ingredient__text__') and normalize-space()='{name}']/ancestor::a[contains(@class, 'BurgerIngredient_ingredient__')]"
+        return By.XPATH, f"//p[contains(@class, 'BurgerIngredient_ingredient__text__') and normalize-space()='{name}']"
     
     # Конструктор бургеров
-    BURGER_CONSTRUCTOR_BASKET = (By.XPATH, "//section[contains(@class, 'BurgerConstructor_basket__')]//ul[contains(@class, 'BurgerConstructor_basket__list__')]")  # Конструктор бургеров
+    BURGER_CONSTRUCTOR_BASKET = (By.CLASS_NAME, "BurgerConstructor_basket__list__l9dp_")  # Конструктор бургеров
     # Оформленный заказ полсе авторизации
-    NUMBER_ORDER_ID = (By.XPATH, "//p[text()='идентификатор заказа']/preceding-sibling::h2[1]")  # Идентификатор заказа
-    BUTTON_CLOSE_MODAL_WINDOW_ORDER_ID = (By.XPATH, "//div[contains(@class, 'contentBox')]/following-sibling::button[1]")  # Кнопка закрытия окна оформленного заказа
+    NUMBER_ORDER_ID = (By.CLASS_NAME, "text_type_digits-large")  # Идентификатор заказа
+    BUTTON_CLOSE_MODAL_WINDOW_ORDER_ID = (By.CSS_SELECTOR, ".Modal_modal_opened__3ISw4 .Modal_modal__close__TnseK")  # Кнопка закрытия окна оформленного заказа
 
     @staticmethod
     def get_ingredient_counter(name):
-        return By.XPATH, f"//p[contains(@class, 'BurgerIngredient_ingredient__text__') and normalize-space()='{name}']/ancestor::a[contains(@class, 'BurgerIngredient_ingredient__')]//p[contains(@class, 'counter_counter__num__')]"
+        return By.XPATH, f"//a[contains(., '{name}')]//p[@class='counter_counter__num__3nue1']"
 
     # Всплывающее окно с деталями ингредиента
-    TITLE_MODAL_WINDOW_INGREDIENT = (By.XPATH, "//section[contains(@class, 'Modal_modal_opened__')]//h2[contains(@class, 'Modal_modal__title_modified__') and normalize-space()='Детали ингредиента']")  # Заголовок "Детали ингредиента"
-    BUTTON_CLOSE_MODAL_WINDOW_INGREDIENT = (By.XPATH, "//h2[text()='Детали ингредиента']/ancestor::div[@class='Modal_modal__container__Wo2l_']//button[contains(@class, 'Modal_modal__close__TnseK')]")  # Кнопка закрытия окна "Детали ингредиента"
+    TITLE_MODAL_WINDOW_INGREDIENT = (By.CLASS_NAME, "Modal_modal__title_modified__3Hjkd")  # Заголовок "Детали ингредиента"
+    BUTTON_CLOSE_MODAL_WINDOW_INGREDIENT = (By.CSS_SELECTOR, ".Modal_modal_opened__3ISw4 .Modal_modal__close__TnseK")  # Кнопка закрытия окна "Детали ингредиента"
 
     # Кнопка после авторизации
-    BUTTON_PLACE_ORDER = (By.XPATH, "//section[contains(@class, 'BurgerConstructor_basket__')]//button[contains(@class, 'button_button__') and normalize-space()='Оформить заказ']")  # Кнопка "Оформить заказ"
+    BUTTON_PLACE_ORDER = (By.CLASS_NAME, "button_button__33qZ0")  # Кнопка "Оформить заказ"

@@ -1,7 +1,7 @@
 import allure
 
 from pages.base_page import BasePage
-from locators.personal_account_page import PersonalAccountPageLocators
+from locators.personal_account_locators import PersonalAccountPageLocators
 
 
 class PersonalAccountPage(BasePage):
