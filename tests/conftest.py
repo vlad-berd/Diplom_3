@@ -17,12 +17,10 @@ def driver(request):
     if browser == 'Chrome':
         options = OptionsChrome()
         options.add_argument("--windows-size=1600,900")
-        # options.add_argument("--headless")
         browser = webdriver.Chrome(options=options)
     elif browser == 'Firefox':
         options = Options()
         options.add_argument("--windows-size=1600,900")
-        # options.add_argument("--headless")
         browser = webdriver.Firefox(options=options)
 
     browser.get(MAIN_URL)
