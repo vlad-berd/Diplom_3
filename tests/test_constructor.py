@@ -43,7 +43,7 @@ class TestConstructor:
 
         response = main_page.close_modal_window_ingredient_details()
 
-        assert response == True
+        assert response, "Окно с ингридиентом не закрылось через крестик"
         assert main_page.get_current_url() == MAIN_URL
 
     @allure.title("Проверка увелечения счётчика ингредиента при добавление в конструктор бургеров")
