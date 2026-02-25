@@ -15,4 +15,4 @@ class LoginPage(BasePage):
     
     @allure.step("Кликнуть на кнопку 'Войти'")
     def click_on_login_button(self):
-        self.click_on_element_action_chains(LoginPageLocators.BUTTON_LOGIN, delay=0.5)
+        self.click_on_element_action_chains(LoginPageLocators.BUTTON_LOGIN, delay=0.1)

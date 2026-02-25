@@ -1,5 +1,4 @@
 import allure
-import time
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -19,14 +18,8 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(EC.invisibility_of_element_located(locator))
 
     @allure.step("Подождать изменения текста элемента")
-    def wait_for_text_to_change(self, locator, old_text, timeout=10):
-        end_time = time.time() + timeout
-        while time.time() < end_time:
-            element = self.wait_for_element(locator)
-            if element.text != old_text:
-                return element.text
-            time.sleep(0.5)
-        return old_text
+    def wait_for_text_to_change(self, locator, expected_text, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(EC.text_to_be_present_in_element(locator, expected_text))
     
     @allure.step("Перетащить элемент source к элементу target")
     def drag_and_drop(self, source_locator, target_locator, timeout=10):
@@ -50,14 +43,13 @@ class BasePage:
                 target.dispatchEvent(dropEvent);
                 source.dispatchEvent(dragEndEvent);
                 """, source_element, target_element)
-            time.sleep(0.2)
 
     @allure.step("Кликнуть на элемент")
     def click_on_element(self, locator, timeout=10):
         self.wait_for_element(locator, timeout).click()
         
     @allure.step("Кликнуть на элемент")
-    def click_on_element_action_chains(self, locator, delay=1.2, timeout=10):
+    def click_on_element_action_chains(self, locator, delay=0.5, timeout=10):
         element = self.wait_for_element(locator, timeout)
         actions = ActionChains(self.driver)
         actions.move_to_element(element).pause(delay).click().perform()

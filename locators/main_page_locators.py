@@ -22,6 +22,7 @@ class MainPageLocators:
         return By.XPATH, f"//a[contains(., '{name}')]//p[@class='counter_counter__num__3nue1']"
 
     # Всплывающее окно с деталями ингредиента
+    TITLE_FOR_CLOSE_MODAL_WINDOW_INGREDIENT = (By.CSS_SELECTOR, ".Modal_modal__title_modified__3Hjkd .Modal_modal__title__2L34m")  # Заголовок "Детали ингредиента"
     TITLE_MODAL_WINDOW_INGREDIENT = (By.CLASS_NAME, "Modal_modal__title_modified__3Hjkd")  # Заголовок "Детали ингредиента"
     BUTTON_CLOSE_MODAL_WINDOW_INGREDIENT = (By.CSS_SELECTOR, ".Modal_modal_opened__3ISw4 .Modal_modal__close__TnseK")  # Кнопка закрытия окна "Детали ингредиента"
 

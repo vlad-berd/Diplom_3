@@ -6,4 +6,4 @@ class OrderFeedPageLocators:
     COUNTER_COMPLETED_TODAY = (By.XPATH, "//p[text()='Выполнено за сегодня:']/following-sibling::p[contains(@class, 'OrderFeed_number__2MbrQ')]")  # Счётчик "Выполнено за сегодня"
     
     # Блок "В работе"
-    LAST_ORDER_NUMBER = (By.CSS_SELECTOR, ".OrderFeed_orderListReady__1YFem .text_type_digits-default")  # Номер последнего заказа
+    LAST_ORDER_NUMBER = (By.CSS_SELECTOR, ".OrderFeed_orderListReady__1YFem .text")  # Номер последнего заказа

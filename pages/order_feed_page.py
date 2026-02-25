@@ -16,11 +16,10 @@ class OrderFeedPage(BasePage):
 
     @allure.step("Получить число из раздела 'В работе'")
     def get_number_from_section_at_work(self, order_number):
-        order_number = '0' + order_number
-        text_status_completed_orders = 'Все текущие заказы готовы!'
-
-        return self.wait_for_text_to_change(OrderFeedPageLocators.LAST_ORDER_NUMBER, text_status_completed_orders)
+        order_number_at_work = '0' + order_number
+        if self.wait_for_text_to_change(OrderFeedPageLocators.LAST_ORDER_NUMBER, order_number_at_work):
+            return order_number_at_work
     
     @allure.step("Клик по кнопке 'Конструктор'")
     def click_on_constructor_button(self):
-        self.click_on_element_action_chains(MainPageLocators.BUTTON_CONSTRUCTOR, delay=0.5)
+        self.click_on_element_action_chains(MainPageLocators.BUTTON_CONSTRUCTOR, delay=0.1)

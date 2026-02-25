@@ -24,7 +24,7 @@ class TestOrderFeed:
         main_page.transfer_ingredient_burger_constructor(ingredient_name_2)
         main_page.transfer_ingredient_burger_constructor(ingredient_name_4)
         main_page.click_on_place_order_button()
-        main_page.get_number_order_id()
+        main_page.get_number_order_id(before_number_all_orders)
         main_page.close_modal_window_order_id()
         main_page.click_on_order_feed_button()
 
@@ -42,6 +42,7 @@ class TestOrderFeed:
         ingredient_name_3 = 'Соус с шипами Антарианского плоскоходца'
         ingredient_name_4 = 'Филе Люминесцентного тетраодонтимформа'
         main_page.click_on_order_feed_button()
+        before_number_all_orders = int(order_feed_page.get_number_counter_all_orders())
         before_number_for_today_orders = int(order_feed_page.get_number_counter_for_today_orders())
         order_feed_page.click_on_constructor_button()
         main_page.transfer_ingredient_burger_constructor(ingredient_name_1)
@@ -50,7 +51,7 @@ class TestOrderFeed:
         main_page.transfer_ingredient_burger_constructor(ingredient_name_2)
         main_page.transfer_ingredient_burger_constructor(ingredient_name_4)
         main_page.click_on_place_order_button()
-        main_page.get_number_order_id()
+        main_page.get_number_order_id(before_number_all_orders)
         main_page.close_modal_window_order_id()
         main_page.click_on_order_feed_button()
 
@@ -68,6 +69,7 @@ class TestOrderFeed:
         ingredient_name_3 = 'Соус с шипами Антарианского плоскоходца'
         ingredient_name_4 = 'Филе Люминесцентного тетраодонтимформа'
         main_page.click_on_order_feed_button()
+        before_number_all_orders = int(order_feed_page.get_number_counter_all_orders())
         order_feed_page.click_on_constructor_button()
         main_page.transfer_ingredient_burger_constructor(ingredient_name_1)
         main_page.transfer_ingredient_burger_constructor(ingredient_name_2)
@@ -75,10 +77,9 @@ class TestOrderFeed:
         main_page.transfer_ingredient_burger_constructor(ingredient_name_2)
         main_page.transfer_ingredient_burger_constructor(ingredient_name_4)
         main_page.click_on_place_order_button()
-        order_number = main_page.get_number_order_id()
+        order_number = main_page.get_number_order_id(before_number_all_orders)
         main_page.close_modal_window_order_id()
         main_page.click_on_order_feed_button()
-
         order_number_from_section_at_work = int(order_feed_page.get_number_from_section_at_work(order_number=order_number))
 
-        assert int(order_number) == int(order_number_from_section_at_work)
+        assert int('0' + order_number) == int(order_number_from_section_at_work)
