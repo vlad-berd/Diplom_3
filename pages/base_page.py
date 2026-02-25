@@ -9,6 +9,10 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    @allure.step("Получить текущий url страницы")
+    def get_current_url(self):
+        return self.driver.current_url
+
     @allure.step("Подождать видимости элемента")
     def wait_for_element(self, locator, timeout=10):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))

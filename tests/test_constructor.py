@@ -12,7 +12,7 @@ class TestConstructor:
 
         main_page.click_on_constructor_button()
 
-        assert driver.current_url == MAIN_URL
+        assert main_page.get_current_url() == MAIN_URL
 
     @allure.title("Проверка перехода на страницу '/feed' по клику на кнопку 'Лента Заказов'")
     @allure.description("Нажимаем на кнопку 'Лента Заказов' и проверяем переход на страницу '/feed'")
@@ -21,7 +21,7 @@ class TestConstructor:
 
         main_page.click_on_order_feed_button()
 
-        assert driver.current_url == ORDER_FEED_URL
+        assert main_page.get_current_url() == ORDER_FEED_URL
 
     @allure.title("Проверка появления всплывающего окна 'Детали ингредиента' по клику на ингредиент")
     @allure.description("Нажимаем на ингредиент и проверяем появление всплывающего окнка 'Детали ингредиента'")
@@ -44,7 +44,7 @@ class TestConstructor:
         response = main_page.close_modal_window_ingredient_details()
 
         assert response == True
-        assert driver.current_url == MAIN_URL
+        assert main_page.get_current_url() == MAIN_URL
 
     @allure.title("Проверка увелечения счётчика ингредиента при добавление в конструктор бургеров")
     @allure.description("Переносим ингредиент в конструктор бургеров и проверяем число счётчика добавленного ингредиента")
