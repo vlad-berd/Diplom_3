@@ -7,7 +7,7 @@
 ## Проект автоматизации тестирования веб-приложения Stellar Burgers
 #### Протестирована функциональность в Google Chrome и Mozilla Firefox.
 
-#### Стек: Selenium, PyTest, Allure-pytest, Allure-report.
+**Стек**: Python, PyTest, Selenium, Allure-pytest, Allure-report.
 
 ### Проведённые тесты:
 ### - Проверка основной функциональности в модуле _test_constructor_:
